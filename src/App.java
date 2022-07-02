@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-
+import Pedidos.Pedidos;
 import Pessoas.PessoaF;
 import Pessoas.PessoaJ;
 import Pessoas.Pessoas;
@@ -49,7 +49,7 @@ public class App {
         Scanner sc1 = new Scanner(System.in);
         
 
-        Restaurante r1 = new Restaurante("trash","lagoa seca","boa pra crl",123);
+        Restaurante r1 = new Restaurante("nordeste","lagoa seca","boa pra crl",123);
         Restaurante r2 = new Restaurante("venezza","lagoa seca","boa pra crl",123);
         l.PegarRestaurante(r1);
         l.PegarRestaurante(r2);
@@ -58,11 +58,11 @@ public class App {
 
 
 
-        Cardapio c1 = new Cardapio("sushi", "um sushizao", 3000, "é de ouro",123231);
-        Cardapio c2 = new Cardapio("hamburguer", "hamburguer", 10, "é de ouro",122133);
-        Cardapio c3 = new Cardapio("pizza", "pizza", 30, "é de ouro",122222);
+        Cardapio c1 = new Cardapio("pamonha", "pamonha", 3000, "pamonha hmmm",123231);
+        Cardapio c2 = new Cardapio("pe de muleke", "pe de muleke", 10, "pe de muleke dilicia",122133);
+        Cardapio c3 = new Cardapio("vatapa", "vatapa", 30, "vatapa com pimenta",122222);
         Cardapio c4 = new Cardapio("coxinha", "coxinha", 5, "é de ouro",133333);
-        Cardapio c5 = new Cardapio("bigbig", "chiclete", 0.5, "é de ouro",111111);
+        Cardapio c5 = new Cardapio("paçoca", "paçoca", 0.5, "paçoquinhaaaa",111111);
         r1.PegarCardapio(c1);
         r1.PegarCardapio(c2);
         r1.PegarCardapio(c3);
@@ -86,42 +86,115 @@ public class App {
 
 
 
-        //pj.MostraRestaurante(r1);
+        
         System.out.println();
-        pj1.MostraRestaurante(r2);
-        /*pj2.MostraRestaurante(r1);
-        pj3.MostraRestaurante(r1);
-        pj4.MostraRestaurante(r1);
-        */
        
-        /*System.out.println("fale o restaurante");
-        String nomedoRestaurante = sc1.nextLine();
+        /* pedidos do primeiro cliente pj */
+        System.out.println("pedido da primeira pessoa PJ");
+        Pedidos pedir = new Pedidos();
+        System.out.println("fale o restaurante");
+        String nomedoRestaurante;
+        nomedoRestaurante = sc1.next();
         if(nomedoRestaurante.equals(r1.getNome())){
             
-            pj.MostraRestaurante(r1);
+           
+           
             System.out.println();
-           
-           
+            System.out.println("quer fazer o pedido ?");
+            System.out.println();
 
-
-
+            Scanner sc2 = new Scanner(System.in);
+            String  pedido;
+            Scanner sc3 = new Scanner(System.in);
+            String op;
+            do{
+                pj.MostraRestaurante(r1);
+                pedido= sc2.nextLine();
+                pedir.PegarPedidos(r1, pedido);
+                System.out.println();
+                System.out.println("quer pedir mais alguma coisa ?(S/N)");
+                op=sc3.nextLine();
+                
+            }while(op.equals("s") || op.equals("S"));
             
-            //p2.setPedidos(pedir);
             
+          
+            sc3.close();
+            pj.setPedidos(pedir);
+            pj.MostrarPedido();
+            
+            sc2.close();        
         }else{
            
             pj.MostraRestaurante(r2);
+            System.out.println();
            
-            //p2.setPedidos(pedir);
-           
-        }*/
-        //sc1.close();
+            System.out.println();
+            System.out.println("quer fazer o pedido ?");
+            System.out.println();
 
-       pj.imprimir();
-       pj1.imprimir();
-       pj2.imprimir();
-       pj3.imprimir();
-       pj4.imprimir();
+            Scanner sc2 = new Scanner(System.in);
+            String  pedido;
+            Scanner sc3 = new Scanner(System.in);
+            String op;
+            do{
+                pj.MostraRestaurante(r2);
+                pedido= sc2.nextLine();
+                pedir.PegarPedidos(r2, pedido);
+                System.out.println();
+                System.out.println("quer pedir mais alguma coisa ?(S/N)");
+                op=sc3.nextLine();
+                
+            }while(op.equals("s") || op.equals("S"));
+            
+           
+            pj.setPedidos(pedir);
+            pj.MostrarPedido();
+            
+        }
+
+        
+        System.out.println("pedido da segunda pessoa PJ");
+        
+        System.out.println("fale o restaurante");
+        Scanner res = new Scanner(System.in);
+        String nomedoRestaurante1;
+        //nomedoRestaurante1 = res.nextLine();
+        
+        
+            
+            
+            
+           
+            System.out.println();
+            System.out.println("quer fazer o pedido ?");
+            System.out.println();
+
+            Scanner sc2 = new Scanner(System.in);
+            String  pedido;
+            Scanner sc3 = new Scanner(System.in);
+            String op;
+            do{
+                pj1.MostraRestaurante(r1);
+                pedido= sc2.nextLine();
+                pedir.PegarPedidos(r1, pedido);
+                System.out.println();
+                System.out.println("quer pedir mais alguma coisa ?(S/N)");
+                op=sc3.nextLine();
+                
+            }while(op.equals("s") || op.equals("S"));
+            
+            
+            
+            sc1.close();
+            sc3.close();
+            pj1.setPedidos(pedir);
+            pj1.MostrarPedido();
+            
+            sc2.close();        
+        
+
+      
 
         
        

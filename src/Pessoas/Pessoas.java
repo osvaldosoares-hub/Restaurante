@@ -3,9 +3,7 @@ package Pessoas;
 
 
 import java.util.Date;
-import java.util.Scanner;
 
-import Pedidos.Pedidos;
 
 import Restaurante.Restaurante;
 
@@ -16,7 +14,7 @@ public  class Pessoas {
     private int telefone;
     private String passoword; 
     private int id;
-    private Pedidos pedidos = new Pedidos();
+    
     static int qtd;
 
     public static int getQtd() {
@@ -65,26 +63,7 @@ public  class Pessoas {
     public void MostraRestaurante(Restaurante r1){
         r1.MostrarCardapio();
         
-        System.out.println();
-        System.out.println("quer fazer o pedido ?");
-        System.out.println();
-
-        Scanner sc1 = new Scanner(System.in);
-        String  pedido= sc1.next();
-        
-        if(pedidos.PegarPedidos(r1, pedido)==1){
-            Pessoas.qtd++;
-        }else{
-            System.out.println("deu erro =(");
-        }
-        sc1.close();
-        
-        
-    }
-
-    public int MostrarPedidos(){
-        pedidos.MostrarPedidos();
-        return 1;
+       
     }
    
     

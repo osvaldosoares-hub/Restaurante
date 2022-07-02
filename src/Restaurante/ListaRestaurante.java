@@ -2,11 +2,12 @@ package Restaurante;
 
 import java.util.ArrayList;
 
+
 public class ListaRestaurante {
     
     private ArrayList<Restaurante> restaurantes = new ArrayList<Restaurante>();
 
-    
+   
     public void PegarRestaurante(Restaurante restaurante){
         this.restaurantes.add(restaurante);
     }
