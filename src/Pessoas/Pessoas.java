@@ -2,6 +2,7 @@ package Pessoas;
 
 
 
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -14,14 +15,15 @@ public  class Pessoas {
     private int telefone;
     private String passoword; 
     private int id;
+    private ArrayList<PessoaJ> pessoa = new ArrayList<PessoaJ>();
     
-    static int qtd;
+    private int qtd=0;
 
-    public static int getQtd() {
+    public  int getQtd() {
         return qtd;
     }
-    public static void setQtd(int qtd) {
-        Pessoas.qtd = qtd;
+    public  void setQtd(int qtd) {
+        this.qtd = qtd;
     }
     
     public String getNome() {
@@ -64,6 +66,25 @@ public  class Pessoas {
         r1.MostrarCardapio();
         
        
+    }
+    public void PegarPessoa(PessoaJ pessoa){
+       
+        this.pessoa.add(pessoa);
+        
+    }
+    public void QuemMaisPediu(){
+        int i,j;
+        for( i=0 ; i < pessoa.size();i++){
+            PessoaJ p1 = pessoa.get(i);
+            for(j=0; j< pessoa.size();j++){
+                PessoaJ p2 = pessoa.get(j);
+                if(p1.getQtd()>p2.getQtd()){
+                    System.out.println(p1.getNome()+" ela(e) q pediu mais");
+                }else if(p1.getQtd()<p2.getQtd()){
+                    System.out.println(p2.getNome()+" ela(e) q pediu mais");
+                }
+            }
+        }
     }
    
     

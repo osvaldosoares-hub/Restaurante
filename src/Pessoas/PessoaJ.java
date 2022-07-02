@@ -15,14 +15,17 @@ public class PessoaJ extends Pessoas{
     public void setPedidos(Pedidos pedidos) {
         this.pedidos = pedidos;
         }   
-        public Pedidos getPedidos() {
+    public Pedidos getPedidos() {
             return pedidos;
-        }
+    
+     }
+    
+       
         public void MostrarPedido(){
             imprimir();
             pedidos.MostrarPedidos();
             System.out.println("------------------");
-            Pessoas.qtd++;
+            
         }
     public  void imprimir(){
        System.out.println();

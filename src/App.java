@@ -9,10 +9,6 @@ import Restaurante.ListaRestaurante;
 import Restaurante.Restaurante;
 
 public class App {
-    /**
-     * @param args
-     * @throws Exception
-     */
     public static void main(String[] args) throws Exception {
         Pessoas p1 = new PessoaF();
         p1.setNome("valdim");
@@ -103,7 +99,7 @@ public class App {
         System.out.println("fale o restaurante");
         String nomedoRestaurante;
         nomedoRestaurante = sc1.next();
-        
+       
 
         
         if(nomedoRestaurante.equals(r1.getNome())){
@@ -116,7 +112,7 @@ public class App {
 
            
             String  pedido;
-            
+            int qtd=0;
             String op;
             do{
                 pj.MostraRestaurante(r1);
@@ -125,11 +121,12 @@ public class App {
                 System.out.println();
                 System.out.println("quer pedir mais alguma coisa ?(S/N)");
                 op=sc1.next();
+                qtd++;
                 
             }while(op.equals("s") || op.equals("S"));
             
             
-           
+            pj.setQtd(qtd);
             pj.setPedidos(pedir);
             pj.MostrarPedido();
             
@@ -145,7 +142,7 @@ public class App {
 
             
             String  pedido;
-            
+            int qtd=0;
             String op;
             do{
                 pj.MostraRestaurante(r2);
@@ -154,10 +151,10 @@ public class App {
                 System.out.println();
                 System.out.println("quer pedir mais alguma coisa ?(S/N)");
                 op=sc1.next();
-                
+                qtd++;
             }while(op.equals("s") || op.equals("S"));
             
-           
+            pj.setQtd(qtd);
             pj.setPedidos(pedir);
             pj.MostrarPedido();
             
@@ -182,7 +179,7 @@ public class App {
 
             
             String  pedido;
-            
+            int qtd=0;
             String op;
             do{
                 pj1.MostraRestaurante(r1);
@@ -191,11 +188,11 @@ public class App {
                 System.out.println();
                 System.out.println("quer pedir mais alguma coisa ?(S/N)");
                 op=sc1.next();
-                
+                qtd++;
             }while(op.equals("s") || op.equals("S"));
             
             
-           
+            pj1.setQtd(qtd);
             pj1.setPedidos(pedir);
             pj1.MostrarPedido();
             
@@ -211,7 +208,7 @@ public class App {
 
             
             String  pedido;
-            
+            int qtd=0;
             String op;
             do{
                 pj1.MostraRestaurante(r2);
@@ -220,10 +217,10 @@ public class App {
                 System.out.println();
                 System.out.println("quer pedir mais alguma coisa ?(S/N)");
                 op=sc1.next();
-                
+                qtd++;
             }while(op.equals("s") || op.equals("S"));
            
-           
+            pj1.setQtd(qtd);
             pj1.setPedidos(pedir);
             pj1.MostrarPedido();
             
@@ -233,40 +230,12 @@ public class App {
         
             
         sc1.close();
-            
-           
-           /*  System.out.println();
-            System.out.println("quer fazer o pedido ?");
-            System.out.println();
-
-            Scanner sc2 = new Scanner(System.in);
-            String  pedido;
-            Scanner sc3 = new Scanner(System.in);
-            String op;
-            do{
-                pj1.MostraRestaurante(r1);
-                pedido= sc2.nextLine();
-                pedir.PegarPedidos(r1, pedido);
-                System.out.println();
-                System.out.println("quer pedir mais alguma coisa ?(S/N)");
-                op=sc3.nextLine();
-                
-            }while(op.equals("s") || op.equals("S"));
-            
-            
-
-           sc2.close();
-           sc3.close();
-            pj1.setPedidos(pedir);
-            pj1.MostrarPedido();
-            
-                   */
-        
-
-      
 
         
-       
+       Pessoas p = new Pessoas();
+       p.PegarPessoa(pj);
+       p.PegarPessoa(pj1);
+       p.QuemMaisPediu();
 
 
     }
