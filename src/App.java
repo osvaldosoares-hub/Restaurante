@@ -9,6 +9,10 @@ import Restaurante.ListaRestaurante;
 import Restaurante.Restaurante;
 
 public class App {
+    /**
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         Pessoas p1 = new PessoaF();
         p1.setNome("valdim");
@@ -46,7 +50,7 @@ public class App {
         pj4.setTelefone(45555555);
         ListaRestaurante l = new ListaRestaurante();
 
-        Scanner sc1 = new Scanner(System.in);
+        
         
 
         Restaurante r1 = new Restaurante("nordeste","lagoa seca","boa pra crl",123);
@@ -88,13 +92,20 @@ public class App {
 
         
         System.out.println();
-       
+        Scanner sc1 = new Scanner(System.in);
+        
         /* pedidos do primeiro cliente pj */
         System.out.println("pedido da primeira pessoa PJ");
+        System.out.println();
+        System.out.println(pj.getNome());
+        System.out.println();
         Pedidos pedir = new Pedidos();
         System.out.println("fale o restaurante");
         String nomedoRestaurante;
         nomedoRestaurante = sc1.next();
+        
+
+        
         if(nomedoRestaurante.equals(r1.getNome())){
             
            
@@ -103,28 +114,27 @@ public class App {
             System.out.println("quer fazer o pedido ?");
             System.out.println();
 
-            Scanner sc2 = new Scanner(System.in);
+           
             String  pedido;
-            Scanner sc3 = new Scanner(System.in);
+            
             String op;
             do{
                 pj.MostraRestaurante(r1);
-                pedido= sc2.nextLine();
+                pedido= sc1.next();
                 pedir.PegarPedidos(r1, pedido);
                 System.out.println();
                 System.out.println("quer pedir mais alguma coisa ?(S/N)");
-                op=sc3.nextLine();
+                op=sc1.next();
                 
             }while(op.equals("s") || op.equals("S"));
             
             
-          
-            sc3.close();
+           
             pj.setPedidos(pedir);
             pj.MostrarPedido();
             
-            sc2.close();        
-        }else{
+                   
+        }else if(nomedoRestaurante.equals(r2.getNome())){
            
             pj.MostraRestaurante(r2);
             System.out.println();
@@ -133,17 +143,17 @@ public class App {
             System.out.println("quer fazer o pedido ?");
             System.out.println();
 
-            Scanner sc2 = new Scanner(System.in);
+            
             String  pedido;
-            Scanner sc3 = new Scanner(System.in);
+            
             String op;
             do{
                 pj.MostraRestaurante(r2);
-                pedido= sc2.nextLine();
+                pedido= sc1.next();
                 pedir.PegarPedidos(r2, pedido);
                 System.out.println();
                 System.out.println("quer pedir mais alguma coisa ?(S/N)");
-                op=sc3.nextLine();
+                op=sc1.next();
                 
             }while(op.equals("s") || op.equals("S"));
             
@@ -151,22 +161,81 @@ public class App {
             pj.setPedidos(pedir);
             pj.MostrarPedido();
             
+        }else{
+            System.out.println("errou o nome");
         }
-
-        
-        System.out.println("pedido da segunda pessoa PJ");
-        
-        System.out.println("fale o restaurante");
-        Scanner res = new Scanner(System.in);
-        String nomedoRestaurante1;
-        //nomedoRestaurante1 = res.nextLine();
         
         
+        System.out.println("pedido da seg pessoa PJ");
+        System.out.println();
+        System.out.println(pj1.getNome());
+        System.out.println();
+        String nomedoRestaurante1 = sc1.next();
+       
+        if(nomedoRestaurante1.equals(r1.getNome())){
             
+           
+           
+            System.out.println();
+            System.out.println("quer fazer o pedido ?");
+            System.out.println();
+
+            
+            String  pedido;
+            
+            String op;
+            do{
+                pj1.MostraRestaurante(r1);
+                pedido= sc1.next();
+                pedir.PegarPedidos(r1, pedido);
+                System.out.println();
+                System.out.println("quer pedir mais alguma coisa ?(S/N)");
+                op=sc1.next();
+                
+            }while(op.equals("s") || op.equals("S"));
             
             
            
+            pj1.setPedidos(pedir);
+            pj1.MostrarPedido();
+            
+                   
+        }else if(nomedoRestaurante1.equals(r2.getNome())){
+           
+            pj1.MostraRestaurante(r2);
             System.out.println();
+           
+            System.out.println();
+            System.out.println("quer fazer o pedido ?");
+            System.out.println();
+
+            
+            String  pedido;
+            
+            String op;
+            do{
+                pj1.MostraRestaurante(r2);
+                pedido= sc1.next();
+                pedir.PegarPedidos(r2, pedido);
+                System.out.println();
+                System.out.println("quer pedir mais alguma coisa ?(S/N)");
+                op=sc1.next();
+                
+            }while(op.equals("s") || op.equals("S"));
+           
+           
+            pj1.setPedidos(pedir);
+            pj1.MostrarPedido();
+            
+        }else{
+            System.out.println("errou o nome");
+        }   
+        
+            
+        sc1.close();
+            
+           
+           /*  System.out.println();
             System.out.println("quer fazer o pedido ?");
             System.out.println();
 
@@ -185,13 +254,13 @@ public class App {
             }while(op.equals("s") || op.equals("S"));
             
             
-            
-            sc1.close();
-            sc3.close();
+
+           sc2.close();
+           sc3.close();
             pj1.setPedidos(pedir);
             pj1.MostrarPedido();
             
-            sc2.close();        
+                   */
         
 
       
